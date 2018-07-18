@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+    <style>
+        body {
+            font-size: medium;
+            font-family: "Microsoft YaHei", Arial, Helvetical, sans-serif, "宋体";
+        }
+    </style>
+</head>
+<body>
+<button id="addRow">添加一行</button>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+            <th>Column 5</th>
+        </tr>
+    </thead>
+ 
+    <tfoot>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+            <th>Column 5</th>
+        </tr>
+    </tfoot>
+</table>
+    <!--<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.0.js' type='text/javascript'></script>-->
+
+    <!--<script src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js' type='text/javascript'></script>-->
+    <script type="text/javascript">    	   
+    $(document).ready(function() {
+    var t = $('#example').DataTable();
+
+    $('#addRow').on( 'click', function () {
+    	for(var i=0;i<5;i++){
+    		t.row.add( [
+            i +'.1',
+            i +'.2',
+            i +'.3',
+            i +'.4',
+            i +'.5'
+        ] ).draw();
+    	}
+    } );
+
+    // Automatically add a first row of data
+    $('#addRow').click();
+} );
+    </script>
+</body>
+</html>
